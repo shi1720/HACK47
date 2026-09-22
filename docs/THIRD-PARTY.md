@@ -28,6 +28,8 @@ Exact installed versions and transitive dependencies are recorded in `package-lo
 | Lucide React | Interface icons | ISC |
 | DM Sans and Instrument Serif | Product and submission typography | SIL Open Font License 1.1 |
 
+The application PDF engines use built-in Helvetica with WinAnsi character coverage, rather than the interface fonts. A shared guard explicitly refuses unsupported PDF text before export. It supports a limited Western character set, not every language or emoji. Records remain Unicode, and JSON/CSV export preserves text in their included fields without transliteration. See `OPERATIONS.md` for the complete-evidence JSON fallback. The deck and one-page brief separately use the bundled DM Sans and Instrument Serif files.
+
 ## Development and verification
 
 Vitest, Supertest, Playwright, tsx, esbuild, concurrently, and the relevant DefinitelyTyped packages support building and testing. Playwright and TypeScript use Apache-2.0 licenses. The other listed development packages use MIT licenses in their package metadata. Node.js provides the runtime and cryptographic primitives. Review distribution notices for the full transitive dependency tree when shipping a packaged release.

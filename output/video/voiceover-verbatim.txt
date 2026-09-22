@@ -1,0 +1,15 @@
+A sauce maker receives a supplier alert. One batch sheet is missing its spice entry. Are those jars connected, or have we simply lost the evidence? I’m Shivam Gupta, and this is Batchlight. See what your records prove, and what they don’t. Every business and record in this demonstration is synthetic.
+
+I select the supplier’s paprika lot. Batchlight follows the recorded connection through a mother sauce into three finished production runs. Clicking a batch shows the source reference and the path. A deterministic calculation produces this answer. A language model does not decide which batches are connected.
+
+The records connect four hundred and eighty jars. Three hundred have shipped to three customers. One hundred and eighty remain on hand. The recipients are listed here. The uncertain delivery stays separate from those totals.
+
+One hundred and twenty jars need investigation because the spice entry is missing. Uncertainty follows a batch into its descendants. Another two hundred and forty jars have no recorded connection to this lot. That phrase does not mean safe. Missing evidence must never become an all-clear.
+
+I save a rehearsal now, while that evidence is still missing. This preserves the records behind the result. The report includes the investigation group, so someone reviewing it later can see what we actually knew at this point.
+
+Now the maker recovers the missing record. It names a different paprika lot. I add that input and its source reference. Here are the old and current records side by side. These one hundred and twenty jars leave the investigation group. Their records now show no connection to the selected lot. That is a better-supported record, not a safety judgment.
+
+The earlier report still contains the original uncertainty. New knowledge has not silently rewritten history. Its evidence pack includes source references and customer contact drafts. Nothing is sent automatically. The full self-hosted app also includes private accounts and validated offline synchronization. The public browser demo keeps its records on this device.
+
+Our first target is a small sauce maker supplying retailers. We propose a twenty-nine-dollar monthly hosted plan, with free local rehearsal. That is a pricing hypothesis. Next come five observed producer rehearsals and a paid pilot offer. I created Batchlight with substantial AI assistance. A recall should not be the first time you test your records.

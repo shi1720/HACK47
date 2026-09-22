@@ -2,9 +2,11 @@
 
 **Target:** roughly 3 minutes at a calm 140-150 words per minute. Read only the narration blocks aloud. Timing is a recording guide, not a product performance claim. Use a real application session at normal speed.
 
+The prepared screen recording is `output/video/batchlight-demo-silent.mp4`. Its matching narration is `output/video/voiceover-verbatim.txt` (383 words in eight sections). Use that text when voicing the prepared recording; the click sequence below also supports a fresh recording. The screen recording uses the full local application with synthetic records.
+
 ## Before recording
 
-1. For the full application, run `npm ci` and `npm run dev`, then open `http://localhost:5180` (API port 3087). Use a 1440-by-900 or 1920-by-1080 browser window at 100% zoom. Hide personal tabs and notifications. The public `https://shi1720.github.io/HACK47/` build is browser-only; use it for the core rehearsal story only after publication is verified. It cannot demonstrate account login or server synchronization.
+1. For the full application, run `npm ci` and `npm run dev`, then open `http://localhost:5180` (API port 3087). Use a 1440-by-900 or 1920-by-1080 browser window at 100% zoom. Hide personal tabs and notifications. The live public `https://shi1720.github.io/HACK47/` build is browser-only and can demonstrate the core rehearsal story. It cannot demonstrate account login or server synchronization.
 2. Open the landing page in a clean browser session. Click **Explore the live demo** to confirm the demo works, then begin a fresh demo for the recording. The fixture is entirely synthetic.
 3. Confirm the PAP-2409 trace shows 480 connected finished units, 300 delivered, 180 still in the kitchen, and one batch needing investigation. In **Batch scope**, the investigation batch has 120 units and the separate lot batch has 240 units.
 4. Test **Save this rehearsal**, **Save snapshot**, and **Download evidence pack**. Open the PDF before recording so the download location is predictable. Start a fresh demo again afterward.

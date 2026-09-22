@@ -19,12 +19,13 @@ page.on('pageerror', (error) => errors.push(error.message));
 await page.goto(process.env.RECORDING_URL || 'http://localhost:5180/');
 await page.evaluate(() => document.fonts.ready);
 const start = Date.now();
+const rehearsal = process.env.RECORDING_DRY_RUN === '1';
 const shotLog = [];
 async function at(seconds, label) {
-  const remaining = seconds * 1000 - (Date.now() - start);
+  const remaining = rehearsal ? 0 : seconds * 1000 - (Date.now() - start);
   if (remaining > 0) await page.waitForTimeout(remaining);
   const actual = (Date.now() - start) / 1000;
-  if (actual > seconds + 6) throw new Error(`Shot ${label} missed its timing: ${actual}`);
+  if (!rehearsal && actual > seconds + 6) throw new Error(`Shot ${label} missed its timing: ${actual}`);
   shotLog.push({ seconds: actual, label });
   console.log(`${actual.toFixed(1)}s: ${label}`);
 }
@@ -51,7 +52,7 @@ try {
   await expect(page.locator('.trace-stats')).toContainText('480');
   await page.locator('.trace-workspace').scrollIntoViewIfNeeded();
   await at(31, 'Inspect the source and provenance path');
-  await page.locator('.react-flow__node').filter({ hasText: 'SMK-1809-A' }).click();
+  await page.getByTestId('rf__node-batch-smoky-1').click();
   await at(43, 'Return to the live trace');
   await closeDialog();
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -97,7 +98,7 @@ try {
   await tab('Evidence changes');
   await page.locator('.evidence-changes').scrollIntoViewIfNeeded();
   await expect(page.locator('.evidence-changes')).toContainText('1 batch changed classification');
-  await page.screenshot({ path: 'artifacts/screenshots/evidence-changes.png', fullPage: true });
+  await page.screenshot({ path: 'artifacts/screenshots/evidence-changes.png', fullPage: false });
   await at(136, 'Download the unchanged original report');
   await page.getByRole('link', { name: 'Rehearsals & reports', exact: true }).click();
   const downloadPromise = page.waitForEvent('download');
@@ -123,7 +124,7 @@ try {
   await at(185, 'End of the narration guide');
   if (errors.length) throw new Error(errors.join('\n'));
   await writeFile(
-    'output/video/recording-shots.json',
+    rehearsal ? 'artifacts/recordings/dry-run-shots.json' : 'output/video/recording-shots.json',
     JSON.stringify(
       { source: 'Full local application; synthetic records', javascriptErrors: errors, shots: shotLog },
       null,
@@ -132,7 +133,9 @@ try {
   );
   const video = page.video();
   await context.close();
-  await video.saveAs('artifacts/recordings/batchlight-screen.webm');
+  await video.saveAs(
+    rehearsal ? 'artifacts/recordings/dry-run.webm' : 'artifacts/recordings/batchlight-screen.webm',
+  );
   console.log('Saved artifacts/recordings/batchlight-screen.webm');
 } finally {
   await browser.close();

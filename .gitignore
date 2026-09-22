@@ -14,3 +14,5 @@ submission/.build/
 tmp/
 
 dist-e2e/
+__pycache__/
+*.pyc

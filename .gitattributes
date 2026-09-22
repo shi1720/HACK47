@@ -5,6 +5,7 @@
 *.jpg binary
 *.mp4 binary
 *.webm binary
+*.zip binary
 *.ttf binary
 *.woff binary
 *.woff2 binary

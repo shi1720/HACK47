@@ -73,8 +73,8 @@ The project was created for HACK47: OFFGRID in the 2026 build period. It uses th
 ## Submission links
 
 - Source: https://github.com/shi1720/HACK47
-- Browser-only demo: https://shi1720.github.io/HACK47/ — publication and clean-browser operation still require verification before submission.
+- Browser-only demo: https://shi1720.github.io/HACK47/
 - Full application with accounts: run `npm ci` and `npm run dev`, then open `http://localhost:5180`. Docker and production-host setup are documented in the repository.
-- Demo video: record `submission/DEMO-SCRIPT.md`, upload the finished video, and paste its public link into Devpost.
+- Demo video: add Shivam's narration from `output/video/voiceover-verbatim.txt` to `output/video/batchlight-demo-silent.mp4`, upload the finished video, and paste its public link into Devpost. Assembly steps are in `submission/VIDEO-ASSEMBLY.md`.
 
-Paste only verified public URLs into Devpost's URL fields. The public demo is browser-only; do not describe it as a hosted account service. Remove the publication-status note only after the live URL has been tested. Check the recorded video immediately before submission.
+The browser demo was verified publicly on 22 September 2026. It does not host the account server. Paste only the URL itself into Devpost's demo field. The narrated video still needs to be assembled, uploaded, and checked before its public URL goes into the video field.

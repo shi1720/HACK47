@@ -4,7 +4,7 @@ Batchlight is a self-hostable hackathon application with server validation, acco
 
 ## Public demonstration and full application
 
-The planned public demonstration is `https://shi1720.github.io/HACK47/`. Its publication and clean-browser behavior must be verified before submission. It runs the trace, evidence repair, saved rehearsal, import, and browser PDF workflows entirely on the visitor's device. Records remain in that browser's IndexedDB; clearing site storage removes them. This build has no hosted account login, cloud backup, or server synchronization. Its account-setup page links to the full application's setup instructions.
+The public demonstration is live at `https://shi1720.github.io/HACK47/`. On 22 September 2026, a clean-browser check verified the 480-unit trace, a saved rehearsal, the first full offline reload, and a PDF export while disconnected, with no JavaScript errors. It runs the trace, evidence repair, saved rehearsal, import, and browser PDF workflows entirely on the visitor's device. Records remain in that browser's IndexedDB; clearing site storage removes them. This build has no hosted account login, cloud backup, or server synchronization. Its account-setup page links to the full application's setup instructions.
 
 The full application runs locally or on a host configured with a persistent disk and an HTTPS domain. It includes actual registration, login, recovery, account isolation, SQLite persistence, and offline command synchronization. No third-party API key is needed for either build. The repository includes Docker deployment configuration, but a working local development run does not establish that a particular production host or Docker environment has been tested.
 
@@ -122,6 +122,12 @@ For a live restore, stop writes, preserve the existing database and its `-wal`/`
 - The audit log chains hashes to help detect record inconsistency. It is not independently anchored or protected against an administrator rewriting the entire database. Do not describe it as immutable or tamper-proof.
 - Source-reference text records what a user entered. The application does not upload, OCR, or independently verify original paper documents.
 - There is no automatic customer messaging, regulatory filing, contamination detection, cross-contact model, or payment collection.
+
+## PDF character support
+
+Both PDF exporters use built-in Helvetica fonts with the limited WinAnsi character set. This includes printable ASCII, Latin-1 accented characters, and supported punctuation such as curly quotes and en/em dashes. Other scripts, emoji, decomposed combining accents, and unsupported control characters are rejected before a PDF is created. The error identifies the field and Unicode code point. The server returns HTTP 422 for this case, and the browser shows the export error.
+
+Batchlight does not transliterate, normalize, or alter the stored evidence to fit the font. Original Unicode text remains in the records. Export the saved snapshot or full workspace as JSON for complete evidence, or use CSV for the corresponding tabular fields. JSON and CSV exports continue to support the original Unicode text. Multilingual PDF output requires a future font and shaping implementation; the current release does not claim it.
 
 ## Incident workflow
 

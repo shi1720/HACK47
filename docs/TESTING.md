@@ -2,10 +2,12 @@
 
 Verified on 22 September 2026. These are engineering checks on synthetic records, not customer validation, a security audit, or food-safety certification.
 
+The initial published commit `a5da4ee` also passed the complete [GitHub Linux CI run](https://github.com/shi1720/HACK47/actions/runs/35688264097). The live [GitHub Pages demo](https://shi1720.github.io/HACK47/) passed a separate clean-browser test: tracing, saving, repairing the evidence, comparing the new classification, and proving the original downloaded snapshot remains identical after repair and reload. Its first full offline reload and offline PDF export passed with zero JavaScript errors. All seven app routes fit a 390px viewport; account setup correctly explains the full application's self-hosting requirement.
+
 | Check | Result and scope |
 | --- | --- |
 | TypeScript | Strict type checking passes across client, shared engine and server |
-| Unit / integration suite | 116 tests across five files, including 16 backend tests and 9 evidence-comparison tests |
+| Unit / integration suite | 130 tests across six files, including 16 backend tests, 9 evidence-comparison tests and 14 PDF text checks |
 | Browser suite | 12 Chromium workflows; actual production-built UI and real SQLite API |
 | Dependency review | `npm audit` reported zero known vulnerabilities in the locked dependency tree |
 | Installation | A clean lockfile installation completed; CI repeats installation on Linux |
@@ -13,6 +15,8 @@ Verified on 22 September 2026. These are engineering checks on synthetic records
 | Documents | Nine-slide pitch deck and one-page brief rendered and inspected |
 
 The domain suite covers connected and intermediate batches, uncertainty propagation, missing sources, cycle and date rejection, duplicate codes, fixed-precision stock limits, import atomicity, saved snapshots, ancestry limits, and corrections that preserve historical evidence. Comparison tests distinguish changed classifications, changes to evidence without a classification change, and records added after a snapshot.
+
+The final PDF checks reject unsupported text before either exporter produces a file, verify HTTP 422 and the complete-evidence JSON alternative, and keep Unicode records unchanged. Separate text extraction from actual server and browser PDFs confirmed supported accented Latin and WinAnsi punctuation. Multilingual PDF rendering remains unsupported; this guard prevents silent corruption.
 
 The server suite checks authentication, rotated recovery codes, session revocation, request origin and CSRF enforcement, tenant isolation, stale revisions, idempotency, audit consistency, snapshot validation, persistent SQLite restart, and restoration from an online database backup. A restored test instance can log in, recover records, export its saved PDF, and accept a new valid command.
 

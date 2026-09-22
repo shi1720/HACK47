@@ -1,5 +1,6 @@
 import PDFDocument from 'pdfkit';
 import type { Recall, Shipment } from '../shared/types.js';
+import { assertRecallPdfText } from '../shared/pdf-text.js';
 import { canonicalJson, hashToken } from './security.js';
 
 const ink = '#173C34';
@@ -12,6 +13,7 @@ const plain = (text: unknown) => String(text ?? '').replace(/[\u0000-\u0008\u000
 /** Uses the immutable saved recall snapshot, never live records. */
 export function createRecallPdf(workspaceName: string, recall: Recall, isDemo: boolean): Promise<Buffer> {
   return new Promise((resolve, reject) => {
+    assertRecallPdfText(workspaceName, recall);
     const document = new PDFDocument({
       size: 'A4',
       margin: 48,

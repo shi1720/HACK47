@@ -23,6 +23,10 @@ The credible entry is a polished, tested product with an unusually careful treat
 
 The store safeguards found important during this review have since been implemented and reported browser-tested by the responsible agent: one writer per browser profile, read-only secondary tabs, preservation of pending records across session/network problems, and stopping a stale pending rehearsal instead of silently recalculating it. Keep those regression tests in the final verification run.
 
+**Release follow-through:** the browser PDF now carries an explicit synthetic-data marker, shipment units, record-time caveat, wrapped title spacing, and line-by-line paragraph pagination. The new **Evidence changes** view compares the earlier and current record directly. GitHub Linux CI passed 116 unit/integration tests and 12 browser workflows at commit `a5da4ee`. The public Pages demo was published and its clean-browser trace/save/offline-reload/PDF path passed with no JavaScript errors. These changes address the concrete execution issues above. Real producer validation, managed hosting, Docker runtime verification, and an independent security review remain outstanding. The provisional scores preserve the review's original assessment rather than presenting the fixes as external judge approval.
+
+**Final export-language finding:** the built-in PDF fonts cannot represent all Unicode text. Both exporters now reject unsupported characters explicitly before creating a PDF, identifying the field and code point. The limited WinAnsi repertoire supports accented Western text and selected punctuation, but not other scripts, emoji, or decomposed accents. Fourteen targeted tests, TypeScript checking, and text extraction from both PDF engines verified the guard and supported-character fidelity. Original records remain unchanged. Complete JSON export remains the evidence-preserving fallback, with CSV available for its included table fields. This prevents silent corruption; multilingual PDF support remains a real product limitation.
+
 ## Claims parity
 
 | Claim | Assessment and required wording |

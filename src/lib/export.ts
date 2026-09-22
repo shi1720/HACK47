@@ -1,4 +1,5 @@
 import type { Recall, Workspace } from '../../shared/types';
+import { assertRecallPdfText } from '../../shared/pdf-text';
 import { downloadFile } from './api';
 export function exportWorkspace(workspace: Workspace) {
   downloadFile(
@@ -70,6 +71,7 @@ export function contactDraft(recall: Recall, customer: string) {
     )}\n\n${recall.mode === 'drill' ? 'This is a rehearsal draft, not a real recall notice.' : 'Our responsible food safety lead must verify the scope, product identifiers and required action before this message is sent.'}\n\nReason recorded: ${recall.reason}\n\nPlease review with your responsible food safety lead before use.\n`;
 }
 export async function exportRecallPdf(recall: Recall, workspaceName: string, isDemo = false) {
+  assertRecallPdfText(workspaceName, recall);
   const [{ jsPDF }, { default: autoTable }] = await Promise.all([import('jspdf'), import('jspdf-autotable')]);
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   const ink: [number, number, number] = [24, 62, 54],
@@ -211,7 +213,7 @@ export async function exportRecallPdf(recall: Recall, workspaceName: string, isD
     doc.text('Customer contact draft', 15, y);
     y += 12;
     doc.setFontSize(10);
-    text(contactDraft(recall, customer).replaceAll('—', '-'));
+    text(contactDraft(recall, customer));
   }
   const digest = Array.from(
     new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(recall)))),

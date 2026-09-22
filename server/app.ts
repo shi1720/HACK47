@@ -20,6 +20,7 @@ import {
   randomToken,
 } from './security.js';
 import { createRecallPdf } from './pdf.js';
+import { PdfTextError } from '../shared/pdf-text.js';
 
 const COOKIE = 'batchlight_session';
 const DAY = 86_400_000;
@@ -224,12 +225,10 @@ export function createApp(options: AppOptions = {}) {
       !['GET', 'HEAD', 'OPTIONS'].includes(req.method) &&
       !equalToken(req.get('X-CSRF-Token') || '', session.csrf_token)
     ) {
-      res
-        .status(403)
-        .json({
-          error: 'Your security token is missing or expired. Refresh and try again.',
-          code: 'CSRF_REJECTED',
-        });
+      res.status(403).json({
+        error: 'Your security token is missing or expired. Refresh and try again.',
+        code: 'CSRF_REJECTED',
+      });
       return;
     }
     next();
@@ -493,11 +492,16 @@ export function createApp(options: AppOptions = {}) {
       res.status(404).json({ error: 'Recall record not found.', code: 'NOT_FOUND' });
       return;
     }
-    const pdf = await createRecallPdf(workspace.name, recall, Boolean(req.auth!.user.is_demo));
-    res
-      .attachment(`batchlight-${recall.mode}-${recall.id.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80)}.pdf`)
-      .type('application/pdf')
-      .send(pdf);
+    try {
+      const pdf = await createRecallPdf(workspace.name, recall, Boolean(req.auth!.user.is_demo));
+      res
+        .attachment(`batchlight-${recall.mode}-${recall.id.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80)}.pdf`)
+        .type('application/pdf')
+        .send(pdf);
+    } catch (error) {
+      if (!(error instanceof PdfTextError)) throw error;
+      res.status(422).json({ error: error.message, code: error.code });
+    }
   });
   app.post('/api/account/delete', requireAuth, authLimit, async (req: AuthRequest, res) => {
     const input = z
@@ -545,14 +549,12 @@ export function createApp(options: AppOptions = {}) {
       return;
     }
     if (error instanceof z.ZodError) {
-      res
-        .status(400)
-        .json({
-          error: error.issues
-            .map((issue) => `${issue.path.join('.') || 'Request'}: ${issue.message}`)
-            .join('; '),
-          code: 'INVALID_INPUT',
-        });
+      res.status(400).json({
+        error: error.issues
+          .map((issue) => `${issue.path.join('.') || 'Request'}: ${issue.message}`)
+          .join('; '),
+        code: 'INVALID_INPUT',
+      });
       return;
     }
     const bodyError = error as { type?: string };

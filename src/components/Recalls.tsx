@@ -26,8 +26,14 @@ export function Recalls() {
         const response = await fetch(`/api/recalls/${encodeURIComponent(r.id)}/pdf`, {
           credentials: 'same-origin',
         });
-        if (!response.ok)
-          throw new Error('Unable to download the saved report. Retry when your workspace is synchronized.');
+        if (!response.ok) {
+          const body = await response.json().catch(() => null);
+          throw new Error(
+            typeof body?.error === 'string'
+              ? body.error
+              : 'Unable to download the saved report. Retry when your workspace is synchronized.',
+          );
+        }
         downloadFile(`batchlight-${r.mode}-${r.id}.pdf`, await response.blob(), 'application/pdf');
       } else {
         await exportRecallPdf(r, w.name, Boolean(user?.isDemo));

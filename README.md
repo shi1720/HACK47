@@ -6,9 +6,11 @@
 
 **One missing ingredient record. A hundred and twenty uncertain jars. What happens when the evidence turns up?**
 
-[Try the browser demo](https://shi1720.github.io/HACK47/) · [Run the full application](#run-the-full-application) · [Watch / record the demo](submission/DEMO-SCRIPT.md) · [Submission package](submission/README.md)
+[Try the browser demo](https://shi1720.github.io/HACK47/) · [Run the full application](#run-the-full-application) · [Watch / record the demo](submission/DEMO-SCRIPT.md) · [Download the submission kit](https://github.com/shi1720/HACK47/releases/download/v1.0.0/batchlight-submission-kit.zip)
 
 Built for **HACK47: OFFGRID** by **Shivam Gupta**, with substantial AI assistance.
+
+[![Verify Batchlight](https://github.com/shi1720/HACK47/actions/workflows/ci.yml/badge.svg)](https://github.com/shi1720/HACK47/actions/workflows/ci.yml)
 
 </div>
 
@@ -82,6 +84,8 @@ This serves the built frontend and real API on localhost for evaluation. Product
 
 This release records **source references**, not uploaded source documents. It does not OCR labels, infer ingredients from a recipe, model contamination or cross-contact, send notifications, collect payments, or certify regulatory compliance. Ingredient quantities are in their source units. Stock allocation is conserved; physical cooking yield is not a cross-unit mass-balance calculation.
 
+PDFs use a limited Western font repertoire. Unsupported scripts and emoji produce an explicit export error; JSON retains the complete original Unicode evidence, and CSV retains its included table fields.
+
 ## Architecture
 
 ```mermaid
@@ -127,6 +131,7 @@ Lot tracking and recall drills already exist. Stocksmith, FoodDocs, LotThread an
 
 - [Devpost copy](submission/devpost.md)
 - [Word-for-word narration and shot list](submission/DEMO-SCRIPT.md)
+- [Prepared silent demo footage](output/video/batchlight-demo-silent.mp4) and [verbatim voiceover](output/video/voiceover-verbatim.txt)
 - [Editable pitch deck](output/presentation/batchlight-pitch.pptx)
 - [One-page PDF brief](output/pdf/batchlight-one-pager.pdf)
 - [Rubric evidence and honest limitations](submission/JUDGING-EVIDENCE.md)

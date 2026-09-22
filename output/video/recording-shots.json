@@ -1,0 +1,86 @@
+{
+  "source": "Full local application; synthetic records",
+  "javascriptErrors": [],
+  "shots": [
+    {
+      "seconds": 8.002,
+      "label": "Enter the synthetic full-application demo"
+    },
+    {
+      "seconds": 23.003,
+      "label": "Trace the paprika lot"
+    },
+    {
+      "seconds": 31.003,
+      "label": "Inspect the source and provenance path"
+    },
+    {
+      "seconds": 43.004,
+      "label": "Return to the live trace"
+    },
+    {
+      "seconds": 53.002,
+      "label": "Read customer deliveries"
+    },
+    {
+      "seconds": 65.003,
+      "label": "Inspect the uncertain batch"
+    },
+    {
+      "seconds": 72.003,
+      "label": "Read the original missing-spice note"
+    },
+    {
+      "seconds": 83.002,
+      "label": "Keep uncertainty visible"
+    },
+    {
+      "seconds": 87.002,
+      "label": "Save the original rehearsal"
+    },
+    {
+      "seconds": 93.003,
+      "label": "Freeze the evidence"
+    },
+    {
+      "seconds": 98.001,
+      "label": "Review the saved uncertainty"
+    },
+    {
+      "seconds": 104.001,
+      "label": "Return to the live records"
+    },
+    {
+      "seconds": 110.002,
+      "label": "Enter recovered source evidence"
+    },
+    {
+      "seconds": 122.002,
+      "label": "Append the correction and recalculate"
+    },
+    {
+      "seconds": 127.014,
+      "label": "Compare original and current evidence"
+    },
+    {
+      "seconds": 136.002,
+      "label": "Download the unchanged original report"
+    },
+    {
+      "seconds": 141,
+      "label": "Inspect the actual exported PDF investigation page"
+    },
+    {
+      "seconds": 159.002,
+      "label": "Business hypothesis and validation plan"
+    },
+    {
+      "seconds": 175.002,
+      "label": "Closing frame"
+    },
+    {
+      "seconds": 185.003,
+      "label": "End of the narration guide"
+    }
+  ]
+}

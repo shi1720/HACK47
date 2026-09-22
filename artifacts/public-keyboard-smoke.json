@@ -1,0 +1,10 @@
+{
+  "url": "https://shi1720.github.io/HACK47/#/app/trace",
+  "method": "Playwright keyboard-only Tab/Enter/Escape smoke; no mouse clicks or programmatic focus",
+  "demoEntry": true,
+  "recallNavigation": true,
+  "modalKeyboardEntry": true,
+  "focusTrap": true,
+  "escapeCloses": true,
+  "triggerFocusRestored": true
+}

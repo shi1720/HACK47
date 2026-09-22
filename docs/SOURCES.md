@@ -11,7 +11,7 @@ Research date: **22 September 2026**. Recheck time-sensitive pages before the 15
 | [FoodDocs pricing](https://www.fooddocs.com/pricing) | Broader food-safety suite with a traceability tier. | Vendor claim. Displayed price and regional/currency settings can change. |
 | [FourFoxes product](https://fourfoxes.io/) | Another food-producer competitor with batch records and quality workflows. | No claims that unlisted features are absent. |
 | [FDA Food Traceability Rule](https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-requirements-additional-traceability-records-certain-foods) | Primary context on lot-linked records and current timing. | Regulatory scope depends on the food, business, and exemptions. Product does not certify compliance. |
-| User-provided HACK47: OFFGRID brief | Judging criteria, requested fields, disclosed AI permission, submission deadline. | The brief contains an eligibility inconsistency. Verify the official rules before entry. |
+| [HACK47: OFFGRID listing](https://hack47-offgrid.devpost.com/) and [official rules](https://hack47-offgrid.devpost.com/rules), checked 22 September 2026 | Judging criteria, requested fields, AI permission and deadline: 15 October 2026 at 00:00 EDT / 09:30 IST. | The live listing says students only; the detailed rules welcome builders broadly. This inconsistency remains unresolved. Entrant eligibility still needs confirmation. |
 | Repository source and tests | Actual application behavior and validation coverage. | Tests support their specific assertions. They do not prove absence of all defects. |
 
 ## Claims we can support

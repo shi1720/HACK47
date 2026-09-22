@@ -1,0 +1,22 @@
+{
+  "url": "https://shi1720.github.io/HACK47/",
+  "publicBrowserOnlyDemo": true,
+  "accountSetupExplainsSelfHosting": true,
+  "trace480Units": true,
+  "savedSnapshot": true,
+  "repairedChilliWithSeparateLot": true,
+  "evidenceComparison": true,
+  "originalSnapshotDeepEqualAfterRepairAndReload": true,
+  "mobile390pxRoutes": [
+    "app",
+    "app/lots",
+    "app/batches",
+    "app/shipments",
+    "app/trace",
+    "app/recalls",
+    "app/settings"
+  ],
+  "mobileHorizontalOverflow": false,
+  "javascriptErrors": [],
+  "failedRequests": []
+}
