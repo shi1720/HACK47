@@ -1,0 +1,7 @@
+code,name,producedOn,quantity,unit,inputs,recordsComplete,notes,source
+BASE-1809,Smoky mother sauce,2026-09-18,120,kg,PAP-2409:3; TOM-1609:110; OIL-1509:5; VIN-1509:8,true,Intermediate bulk sauce. Output is measured after cooking; ingredient litres and kilograms are not added together.,"Synthetic production sheet EEO-1809-A, signed line-input checklist."
+SMK-1809-A,Smoky tomato · morning run,2026-09-18,180,units,BASE-1809:45,true,"180 jars, 250 g nominal fill. Recorded link to the mother sauce.","Synthetic filling log FILL-1809-A, source kettle BASE-1809."
+SMK-1809-B,Smoky tomato · afternoon run,2026-09-18,180,units,BASE-1809:45,true,"180 jars, 250 g nominal fill.","Synthetic filling log FILL-1809-B, source kettle BASE-1809."
+SMK-1909-A,Smoky tomato · small run,2026-09-19,120,units,BASE-1809:30,true,120 jars; completes the recorded allocation of the 120 kg mother sauce.,"Synthetic filling log FILL-1909-A, source kettle BASE-1809."
+CHL-1909-X,Chilli relish · incomplete record,2026-09-19,120,units,TOM-1609:25; VIN-1509:3,false,The spice entry is missing from the handwritten production sheet. PAP-2409 cannot be ruled out. Investigate before making a recall decision.,Synthetic production sheet EEO-1909-X; spice lot box left blank.
+SMK-2009-A,Smoky tomato · separate lot,2026-09-20,240,units,PAP-2410:1.5; TOM-1609:55; OIL-1509:2.5; VIN-1509:4,true,Records name a different paprika lot. No recorded connection to PAP-2409 is not a food-safety clearance.,Synthetic production sheet EEO-2009-A and ingredient-label check.

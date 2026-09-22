@@ -1,0 +1,5 @@
+id,code,batchId,customer,contact,quantity,shippedOn,source
+shipment-market,SHP-1909-01,batch-smoky-1,Willow Market,buyer@willow.example,120,2026-09-19,Synthetic dispatch note DN-1909-01: 10 cases × 12 jars.
+shipment-pantry,SHP-1909-02,batch-smoky-2,Neighbourhood Pantry,team@pantry.example,120,2026-09-19,Synthetic dispatch note DN-1909-02: 10 cases × 12 jars.
+shipment-table,SHP-2009-01,batch-smoky-3,Sunday Table,hello@sundaytable.example,60,2026-09-20,Synthetic dispatch note DN-2009-01: 5 cases × 12 jars.
+shipment-uncertain,SHP-2009-02,batch-uncertain,Willow Market,buyer@willow.example,48,2026-09-20,Synthetic dispatch note DN-2009-02. Upstream spice entry requires investigation.

@@ -1,0 +1,22 @@
+services:
+  batchlight:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      NODE_ENV: production
+      APP_ORIGIN: ${APP_ORIGIN:?Set APP_ORIGIN to your exact public HTTPS origin}
+      DATABASE_PATH: /app/data/batchlight.sqlite
+      TRUST_PROXY: "1"
+    volumes:
+      - batchlight-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+volumes:
+  batchlight-data:

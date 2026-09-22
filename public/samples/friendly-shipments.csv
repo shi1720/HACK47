@@ -1,0 +1,5 @@
+code,customer,contact,quantity,shippedOn,source,batchId
+SHP-1909-01,Willow Market,buyer@willow.example,120,2026-09-19,Synthetic dispatch note DN-1909-01: 10 cases × 12 jars.,SMK-1809-A
+SHP-1909-02,Neighbourhood Pantry,team@pantry.example,120,2026-09-19,Synthetic dispatch note DN-1909-02: 10 cases × 12 jars.,SMK-1809-B
+SHP-2009-01,Sunday Table,hello@sundaytable.example,60,2026-09-20,Synthetic dispatch note DN-2009-01: 5 cases × 12 jars.,SMK-1909-A
+SHP-2009-02,Willow Market,buyer@willow.example,48,2026-09-20,Synthetic dispatch note DN-2009-02. Upstream spice entry requires investigation.,CHL-1909-X

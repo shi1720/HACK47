@@ -1,0 +1,118 @@
+{
+  "measuredAt": "2026-09-22T04:39:47.704Z",
+  "scope": "Local synthetic domain-engine benchmark. These are observed measurements, not deployment performance guarantees or browser-rendering benchmarks.",
+  "method": "Ten sequential iterations per fixture in one process, without forced garbage collection. Each validation/trace iteration validates the workspace then calls traceRecall, which validates its record graph again. Stock balances validate and build once. Save timing includes snapshot creation and validation. Wide shape exercises the domain maximum of 5,000 batches; its 10,001 total records exceed the separate 5,000-record per-import limit.",
+  "memoryCaveat": "Observed heap delta is the end-minus-start JavaScript heap measurement; garbage collection and prior scenarios affect it. It is not peak memory. Process maximum RSS includes Node, tooling and every scenario in this run.",
+  "environment": {
+    "node": "v22.16.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "cpu": "Apple M4 Pro"
+  },
+  "limits": {
+    "maxAncestryDepth": 128,
+    "maxBatches": 5000,
+    "maxLots": 5000,
+    "maxShipments": 20000,
+    "maxImportRows": 5000
+  },
+  "scenarios": [
+    {
+      "name": "wide-5000",
+      "sourceLots": 1,
+      "batches": 5000,
+      "shipments": 5000,
+      "ancestryDepth": 1,
+      "iterations": 10,
+      "validateAndTrace": {
+        "medianMs": 46.64,
+        "maxMs": 91.4,
+        "runsMs": [
+          91.4,
+          51.09,
+          49.28,
+          47.54,
+          47.05,
+          45.59,
+          45.35,
+          44.53,
+          46.22,
+          45.09
+        ]
+      },
+      "allStockBalances": {
+        "medianMs": 22.74,
+        "maxMs": 27.59,
+        "runsMs": [
+          25.53,
+          23.64,
+          23.75,
+          23.1,
+          21.35,
+          22.37,
+          21.89,
+          27.59,
+          21.51,
+          22.1
+        ]
+      },
+      "saveRecallMs": 109.47,
+      "originalJsonBytes": 2189266,
+      "savedJsonBytes": 4704525,
+      "observedHeapDeltaMiB": 48.33,
+      "verifiedAffectedUnits": 500000,
+      "verifiedShippedUnits": 200000
+    },
+    {
+      "name": "deep-128-supported-limit",
+      "sourceLots": 1,
+      "batches": 128,
+      "shipments": 1,
+      "ancestryDepth": 128,
+      "iterations": 10,
+      "validateAndTrace": {
+        "medianMs": 0.77,
+        "maxMs": 1.91,
+        "runsMs": [
+          0.91,
+          0.77,
+          0.73,
+          0.77,
+          0.7,
+          1.91,
+          0.77,
+          0.71,
+          0.71,
+          0.81
+        ]
+      },
+      "allStockBalances": {
+        "medianMs": 0.35,
+        "maxMs": 0.45,
+        "runsMs": [
+          0.44,
+          0.35,
+          0.39,
+          0.34,
+          0.45,
+          0.35,
+          0.34,
+          0.33,
+          0.33,
+          0.4
+        ]
+      },
+      "saveRecallMs": 4.6,
+      "originalJsonBytes": 29883,
+      "savedJsonBytes": 154448,
+      "observedHeapDeltaMiB": -7.54,
+      "verifiedAffectedUnits": 100,
+      "verifiedShippedUnits": 40
+    }
+  ],
+  "rejectedDepth129": {
+    "errorCode": "GRAPH_TOO_DEEP",
+    "elapsedMs": 0.55
+  },
+  "processMaxRssMiB": 213.23
+}

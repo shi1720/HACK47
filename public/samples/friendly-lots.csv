@@ -1,0 +1,6 @@
+code,name,supplier,receivedOn,expiresOn,quantity,unit,status,source
+PAP-2409,Smoked paprika,Red Earth Spices,2026-09-16,2027-03-16,10,kg,hold,"Synthetic supplier delivery note RES-0916, line 1. Drill alert references lot PAP-2409."
+PAP-2410,Smoked paprika,Red Earth Spices,2026-09-17,2027-03-17,10,kg,available,"Synthetic supplier delivery note RES-0917, line 1; separate supplier lot."
+TOM-1609,Tomato purée,Orchard Supply Co.,2026-09-16,2026-12-16,250,kg,available,"Synthetic receiving sheet OSC-0916, line 2."
+OIL-1509,Rapeseed oil,Orchard Supply Co.,2026-09-15,2027-06-15,50,l,available,"Synthetic receiving sheet OSC-0915, line 1. Input quantities are recorded in litres."
+VIN-1509,Cider vinegar,Field & Press,2026-09-15,2027-09-15,60,l,available,"Synthetic delivery note FP-0915, line 3."

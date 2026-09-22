@@ -1,0 +1,17 @@
+import { chromium } from '@playwright/test';
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage({ viewport: { width: 1440, height: 1100 }, deviceScaleFactor: 1 });
+await page.goto('http://localhost:5180/');
+await page.evaluate(() => document.fonts.ready);
+await page.screenshot({ path: 'artifacts/screenshots/landing.png', fullPage: true });
+await page.getByRole('button', { name: 'Explore the live demo' }).click();
+await page.waitForURL('**/app');
+await page.screenshot({ path: 'artifacts/screenshots/dashboard.png', fullPage: true });
+await page.getByRole('link', { name: 'Recall workspace' }).click();
+await page.waitForTimeout(700);
+await page.screenshot({ path: 'artifacts/screenshots/trace.png', fullPage: true });
+await page.screenshot({ path: 'submission/assets/recall-workspace.png', fullPage: true });
+await page.setViewportSize({ width: 390, height: 844 });
+await page.goto('http://localhost:5180/app');
+await page.screenshot({ path: 'artifacts/screenshots/mobile-dashboard.png', fullPage: true });
+await browser.close();

@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-server
+dist-e2e
+artifacts
+output
+submission/.build
+submission/assets
+playwright-report
+test-results
+data
+package-lock.json
